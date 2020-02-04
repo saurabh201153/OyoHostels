@@ -16,6 +16,7 @@ import java.util.List;
 
 @RequestMapping("oyohostels/booking")
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class BookingController {
 
     @Autowired

@@ -35,13 +35,16 @@ public class BookingService {
 //        book.setRoomid(bed.getRoom().getId());
         book.setHostelid(bed.getHostel().getId());
         book.setBedno(bed.getBedno());
-//        book.setRoomno(bed.getRoom().getRoomno());
+        book.setRoomno(bed.getRoomno());
         book.setPerson(personService.getPerson(user_id));
+        book.setHostelname(bed.getHostel().getName());
         book.setBeginDate(bookingDetails.getStartDate());
         book.setEndDate(bookingDetails.getEndDate());
         book.setBookingName(bookingDetails.getBookingName());
         book.setBookingEmail(bookingDetails.getBookingEmail());
+        book.setPrice((long) bed.getHostel().getPrice());
         bookingRepository.save(book);
+        EmailService.EmailService(book);
         return "OK" ;
     }
 

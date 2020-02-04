@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("oyohostels/")
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class HostelController {
 	@Autowired
 	private HostelService hostelservice;

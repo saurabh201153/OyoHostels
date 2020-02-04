@@ -31,21 +31,21 @@ public class PersonService {
         personRepository.save(person);
     }
 
-    public Map<Long,String> Login(Login login){
+    public Long Login(Login login){
 
         Map<Long,String> data = new HashMap<>();
         Person person = personRepository.findByEmail(login.getEmail());
         if(person!= null){
             if(person.getPasswordd().equals(login.getPassword())){
                 data.put(person.getId(),"");
-                return data;
+                return person.getId();
             }
-            else{
-                data.put(person.getId(),"WrongPassword");
-                return data;
-            }
+//            else{
+//                data.put(person.getId(),"WrongPassword");
+//                return data;
+//            }
         }
-        data.put(Long.valueOf(-1),"Username does not exist");
-        return data;
+//        data.put(Long.valueOf(-1),"Username does not exist");
+        return Long.valueOf(-1);
     }
 }

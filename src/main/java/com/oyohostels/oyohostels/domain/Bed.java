@@ -12,6 +12,7 @@ public class Bed {
 	private Long id;
 	private Long bedno;
 	private Boolean isOccupied;
+	private Long roomno;
 //	@ManyToOne(targetEntity = Room.class)
 //	private Room room;
 	@ManyToOne(targetEntity = Hostel.class)
@@ -69,7 +70,14 @@ public class Bed {
 		this.bedno = bedno;
 	}
 
-//	public List<Booking> getBook() {
+	public Long getRoomno() {
+		return roomno;
+	}
+
+	public void setRoomno(Long roomno) {
+		this.roomno = roomno;
+	}
+	//	public List<Booking> getBook() {
 //		return book;
 //	}
 //

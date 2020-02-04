@@ -21,16 +21,18 @@ public class Booking {
     private Date endDate;
     private String bookingName;
     private String bookingEmail;
-
+    private String hostelname;
+    private Long price;
 
     @ManyToOne(targetEntity = Person.class)
     private Person person;
     @ManyToOne(targetEntity = Bed.class)
     private Bed bed;
 
+    String newline = System.getProperty("line.separator");
 
     public Booking(Long hostelid, Long roomid, Long roomno, Long bedno, Date begin_date, Date endDate, String bookingName,
-                   String bookingEmail) {
+                   String bookingEmail, Long price) {
         super();
         this.hostelid = hostelid;
         this.roomid = roomid;
@@ -40,6 +42,7 @@ public class Booking {
         this.roomno = roomno;
         this.bookingName = bookingName;
         this.bookingEmail = bookingEmail;
+        this.price=price;
     }
 
     public Booking() {
@@ -132,5 +135,42 @@ public class Booking {
         this.bookingEmail = bookingEmail;
     }
 
+    public String getHostelname() {
+        return hostelname;
+    }
+
+    public void setHostelname(String hostelname) {
+        this.hostelname = hostelname;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return ("<html>" +
+                "<div style=\"border: solid; border-color: black; border-width: 3px; border-radius: 5px; margin-left: 10px;\">" +
+		"<header style= \"background-color:tomato; font-size: 50px; width: auto; text-align: center;margin-bottom: 10px\">"+"#" + id + "Confirmed!!!</header>" +
+		"<div style=\"font-size: 30px; margin-left: 10px\"> " +
+			"<div><b>Name: </b>" + bookingName + "</div>" +
+			"<div><b>Email: </b>" + bookingEmail + "</div>" +
+			"<div><b>Hostel Name: </b>" + hostelname + " -"  + hostelid + "</div>" +
+			"<div><b>Room No. : </b>" + roomno + "</div>" +
+			"<div><b>Bed No.: </b>" + bedno + "</div>" +
+			"<div><b>CheckIn: </b>" + beginDate.toString().substring(0,10)+beginDate.toString().substring(23,28) + "</div>" +
+			"<div><b>CheckOut: </b>" + endDate.toString().substring(0,10) +beginDate.toString().substring(23,28) + "</div>" +
+			"<div><b>Total Price: </b>" + price + "</div>" +
+		"</div>" +
+		"<div style= \"padding-left: 10px\"><p>The Total amount shown here is the amount you pay at the property.<br>" +
+               " OyoHostels does not charge any reservation, administration and other charges</p>" +
+		"</div>" +
+	"</div>" + "</html>"
+        );
+    }
 }
 

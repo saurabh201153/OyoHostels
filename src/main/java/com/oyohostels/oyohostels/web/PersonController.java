@@ -6,6 +6,8 @@ import com.oyohostels.oyohostels.domain.Person;
 import com.oyohostels.oyohostels.service.BookingService;
 import com.oyohostels.oyohostels.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("oyohostels/profile")
+@CrossOrigin("http://localhost:3000")
 public class PersonController {
 
     @Autowired
@@ -32,8 +35,8 @@ public class PersonController {
     }
 
     @PostMapping("/login")
-    public Map<Long,String> Login(@RequestBody Login login){
-        return personService.Login(login);
+    public Long Login(@RequestBody Login login){
+        return  ( personService.Login(login));
     }
 
     @GetMapping("{user_id}/booking")

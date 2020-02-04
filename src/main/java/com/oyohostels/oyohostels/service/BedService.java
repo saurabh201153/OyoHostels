@@ -21,7 +21,7 @@ public class BedService {
 	@Autowired
 	private HostelService hostelService;
 
-	public void addBed(Bed b,Long hostelid,Long roomid) {
+	public void addBed(Bed b,Long hostelid) {
 		b.setHostel(hostelService.getHostel(hostelid));
 //		b.setRoom(roomService.getRoom(roomid));
 		bedrepository.save(b);

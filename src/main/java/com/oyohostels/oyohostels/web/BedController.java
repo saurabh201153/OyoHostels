@@ -23,9 +23,9 @@ public class BedController {
 	private HostelService hostelService;
 	
 
-	@PostMapping("addbed/{hostel_id}/{room_id}")
-	public void addHostel(@RequestBody Bed b, @PathVariable Long hostel_id, @PathVariable Long room_id){
-		bedservice.addBed(b,hostel_id,room_id);
+	@PostMapping("addbed/{hostel_id}")
+	public void addBed(@RequestBody Bed b, @PathVariable Long hostel_id){
+		bedservice.addBed(b,hostel_id);
 	}
 	@GetMapping("findbed/{hostel_id}")
 	public List<Bed> find(@PathVariable Long hostel_id){
