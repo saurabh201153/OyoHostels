@@ -23,7 +23,7 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping("/{user_id}/{hostel_id}")
-    public String add(@PathVariable Long user_id, @PathVariable Long hostel_id, @RequestBody BookingDetails bookingDetails) {
+    public int add(@PathVariable Long user_id, @PathVariable Long hostel_id, @RequestBody BookingDetails bookingDetails) {
           return bookingService.addBooking1(user_id,hostel_id,bookingDetails);
     }
 

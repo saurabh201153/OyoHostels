@@ -2,6 +2,8 @@ package com.oyohostels.oyohostels.service;
 
 import com.oyohostels.oyohostels.domain.Booking;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -10,8 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
+@Component
+@Async
 public class EmailService {
-    public static void  EmailService(Booking book){
+    public void  EmailService(Booking book){
         final String username = "saurabh2018.53@gmail.com" ;
         final String password = "Saurabh@oyo" ;
 

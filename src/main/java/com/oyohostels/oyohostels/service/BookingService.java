@@ -16,9 +16,7 @@ import java.util.*;
 public class BookingService {
 
     @Autowired
-    private HostelService hostelService;
-    @Autowired
-    private RoomService roomService;
+    private EmailService emailService;
     @Autowired
     private BookingRepository bookingRepository;
     @Autowired
@@ -26,11 +24,10 @@ public class BookingService {
     @Autowired
     private PersonService personService;
 
-
-    public String addBooking1(Long user_id, Long hostel_id,BookingDetails bookingDetails){
+    public int addBooking1(Long user_id, Long hostel_id,BookingDetails bookingDetails){
         Booking book = new Booking();
         Bed bed = getBedForBooking(hostel_id,bookingDetails.getStartDate(),bookingDetails.getEndDate());
-        if(bed==null)return "NO rooms Available";
+        if(bed==null)return -1;
         book.setBed(bed);
 //        book.setRoomid(bed.getRoom().getId());
         book.setHostelid(bed.getHostel().getId());
@@ -44,8 +41,8 @@ public class BookingService {
         book.setBookingEmail(bookingDetails.getBookingEmail());
         book.setPrice((long) bed.getHostel().getPrice());
         bookingRepository.save(book);
-        EmailService.EmailService(book);
-        return "OK" ;
+        emailService.EmailService(book);
+        return 1 ;
     }
 
     public Bed getBedForBooking(Long hostel_id, Date start_date,Date end_date)  {
