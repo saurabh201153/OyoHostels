@@ -11,4 +11,5 @@ import java.util.List;
 public interface BookingRepository extends CrudRepository<Booking, Integer> {
     List<Booking> findByBedAndEndDateGreaterThanOrderByEndDateAsc(Bed bed, Date start_date);
     List<Booking> findAllByPerson_Id(Long id);
+    public void deleteById(Long id);
 }

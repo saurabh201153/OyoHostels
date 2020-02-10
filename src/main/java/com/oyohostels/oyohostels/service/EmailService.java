@@ -17,7 +17,7 @@ import java.util.Properties;
 public class EmailService {
     public void  EmailService(Booking book){
         final String username = "saurabh2018.53@gmail.com" ;
-        final String password = "Saurabh@oyo" ;
+        final String password = "oyo@1234" ;
 
         String newline = System.getProperty("line.separator");
 

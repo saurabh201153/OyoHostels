@@ -10,13 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.awt.print.Book;
 import java.util.Date;
 import java.util.List;
 
-@RequestMapping("oyohostels/booking")
+@RequestMapping("/oyohostels/booking")
 @RestController
 @CrossOrigin("http://localhost:3000")
+@Transactional
 public class BookingController {
 
     @Autowired
@@ -27,7 +29,7 @@ public class BookingController {
           return bookingService.addBooking1(user_id,hostel_id,bookingDetails);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public void delete(@PathVariable Long id){
         bookingService.delete(id);
     }

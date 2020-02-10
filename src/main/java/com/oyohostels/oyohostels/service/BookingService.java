@@ -71,8 +71,8 @@ public class BookingService {
     }
 
 
-    public void delete(Long id){
-        bookingRepository.deleteById(Math.toIntExact(id));
+    public void delete(long id){
+        bookingRepository.deleteById(id);
     }
 
 }
