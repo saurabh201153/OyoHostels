@@ -12,9 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping("oyohostels/")
+@RequestMapping("/oyohostels/")
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins="http://localhost:3000")
 public class HostelController {
 	@Autowired
 	private HostelService hostelservice;
@@ -35,9 +35,6 @@ public class HostelController {
 		hostelservice.addHostel(hostel);
 	}
 
-//	@GetMapping("/getbeds/{hostel_id}")
-//	public List<Bed> getbeds(@PathVariable Long hostel_id){
-//		return hostelservice.getHostel(hostel_id).getBeds();
-//	}
+
 	
 }

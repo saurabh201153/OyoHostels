@@ -156,20 +156,47 @@ public class Booking {
         return ("<html>" +
                 "<div style=\"border: solid; border-color: black; border-width: 3px; border-radius: 5px; margin-left: 10px;\">" +
 		"<header style= \"background-color:tomato; font-size: 50px; width: auto; text-align: center;margin-bottom: 10px\">"+"#" + id + "Confirmed!!!</header>" +
-		"<div style=\"font-size: 30px; margin-left: 10px\"> " +
-			"<div><b>Name: </b>" + bookingName + "</div>" +
-			"<div><b>Email: </b>" + bookingEmail + "</div>" +
-			"<div><b>Hostel Name: </b>" + hostelname + " -"  + hostelid + "</div>" +
-			"<div><b>Room No. : </b>" + roomno + "</div>" +
-			"<div><b>Bed No.: </b>" + bedno + "</div>" +
-			"<div><b>CheckIn: </b>" + beginDate.toString().substring(0,10)+beginDate.toString().substring(23,28) + "</div>" +
-			"<div><b>CheckOut: </b>" + endDate.toString().substring(0,10) +beginDate.toString().substring(23,28) + "</div>" +
-			"<div><b>Total Price: </b>" + price + "</div>" +
-		"</div>" +
-		"<div style= \"padding-left: 10px\"><p>The Total amount shown here is the amount you pay at the property.<br>" +
-               " OyoHostels does not charge any reservation, administration and other charges</p>" +
-		"</div>" +
-	"</div>" + "</html>"
+                "<div style=\"font-size: 30px; margin-left: 10px\"> " +
+                "<div><b>Name: </b>" + bookingName + "</div>" +
+                "<div><b>Email: </b>" + bookingEmail + "</div>" +
+                "<div><b>Hostel Name: </b>" + hostelname + " -"  + hostelid + "</div>" +
+                "<div><b>Room No. : </b>" + roomno + "</div>" +
+                "<div><b>Bed No.: </b>" + bedno + "</div>"+
+                "<div><b>CheckIn: </b>" + beginDate.toString().substring(0,10)+beginDate.toString().substring(23,28) + "</div>" +
+                "<div><b>CheckOut: </b>" + endDate.toString().substring(0,10) +beginDate.toString().substring(23,28) + "</div>" +
+                "<div><b>Total Price: Rs. </b>" + price + "</div>" +
+                "</div>" +
+                "<div style= \"padding-left: 10px\"><p>The Total amount shown here is the amount you pay at the property.<br>" +
+                " OyoHostels does not charge any reservation, administration and other charges</p>" +
+                "</div>" +
+                "</div>" + "</html>"
+        );
+    }
+
+    public String common(){
+        return(
+                "<div style=\"font-size: 30px; margin-left: 10px\"> " +
+                        "<div><b>Name: </b>" + bookingName + "</div>" +
+                        "<div><b>Email: </b>" + bookingEmail + "</div>" +
+                        "<div><b>Hostel Name: </b>" + hostelname + " -"  + hostelid + "</div>" +
+                        "<div><b>Room No. : </b>" + roomno + "</div>" +
+                        "<div><b>Bed No.: </b>" + bedno + "</div>"
+                );
+    }
+
+    public String cancel(){
+        return ("<html>" +
+                "<div style=\"border: solid; border-color: black; border-width: 3px; border-radius: 5px; margin-left: 10px;\">" +
+                "<header style= \"background-color:tomato; font-size: 50px; width: auto; text-align: center;margin-bottom: 10px\">"+"#" + id + "Cancelled!!!</header>" +
+                common() +
+                "<div><b>CheckIn: </b>" + beginDate.toString().substring(0,10) + "</div>" +
+                "<div><b>CheckOut: </b>" + endDate.toString().substring(0,10)  + "</div>" +
+                "<div><b>Total Price: </b>" + price + "</div>" +
+                "</div>" +
+                "<div style= \"padding-left: 10px\"><p>The Total amount shown here is the amount you pay at the property.<br>" +
+                " OyoHostels does not charge any reservation, administration and other charges</p>" +
+                "</div>" +
+                "</div>" + "</html>"
         );
     }
 }

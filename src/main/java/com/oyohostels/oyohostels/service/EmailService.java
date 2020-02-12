@@ -15,7 +15,7 @@ import java.util.Properties;
 @Component
 @Async
 public class EmailService {
-    public void  EmailService(Booking book){
+    public void  EmailBooking(Booking book){
         final String username = "saurabh2018.53@gmail.com" ;
         final String password = "oyo@1234" ;
 
@@ -38,8 +38,8 @@ public class EmailService {
          try{
              Message message = new MimeMessage(session);
              message.setFrom(new InternetAddress("saurabh2018.53@gmail.com"));
-             String email = book.getBookingEmail();
-             message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
+             String email1 = book.getBookingEmail();
+             message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email1));
              message.setSubject("Your Booking has been confirmed!!!!!!!");
              content+=newline + newline + book.toString()+ newline + newline + " This is a system generated mail do not reply";
              message.setContent(content,"text/html");
@@ -50,4 +50,5 @@ public class EmailService {
              throw new RuntimeException(e);
          }
     }
+
 }

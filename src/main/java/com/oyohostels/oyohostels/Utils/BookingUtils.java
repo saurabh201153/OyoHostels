@@ -17,6 +17,6 @@ public class BookingUtils {
 
     private  static boolean areDatesOverlapping(Date beginDate, Date endDate, Date startDate, Date enDate2){
 //        if(beginDate==enDate2)return true && endDate.after(startDate);
-       return beginDate.before(enDate2) && endDate.after(startDate);
+       return beginDate.before(enDate2) && startDate.before(endDate);
     }
 }

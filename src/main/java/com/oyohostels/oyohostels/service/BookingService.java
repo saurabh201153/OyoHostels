@@ -41,7 +41,7 @@ public class BookingService {
         book.setBookingEmail(bookingDetails.getBookingEmail());
         book.setPrice((long) bed.getHostel().getPrice());
         bookingRepository.save(book);
-        emailService.EmailService(book);
+        emailService.EmailBooking(book);
         return 1 ;
     }
 

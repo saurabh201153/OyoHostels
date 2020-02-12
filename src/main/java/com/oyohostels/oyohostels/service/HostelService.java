@@ -2,18 +2,12 @@ package com.oyohostels.oyohostels.service;
 
 import java.util.*;
 
-import com.oyohostels.oyohostels.Utils.BookingUtils;
 import com.oyohostels.oyohostels.domain.Bed;
-import com.oyohostels.oyohostels.domain.Booking;
 import com.oyohostels.oyohostels.domain.Hostel;
 import com.oyohostels.oyohostels.repository.BedRepository;
 import com.oyohostels.oyohostels.repository.HostelRepository;
-import com.oyohostels.oyohostels.repository.RoomRepository;
-import org.apache.catalina.Host;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.oyohostels.oyohostels.domain.Room;
 
 @Service
 public class HostelService {
@@ -68,6 +62,7 @@ public class HostelService {
 		for (Hostel h : hostel) {
 			Bed bed = bookingService.getBedForBooking(h.getId(), start_date, end_date);
 			if (bed == null)continue;
+			System.out.println(bed.getId());
 				hostels.add(h);
 		}
 		return hostels;
